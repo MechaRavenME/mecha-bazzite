@@ -9,26 +9,8 @@ set -ouex pipefail
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
 
-# 1. Habilitamos el repositorio comunitario para Hyprland
-dnf5 -y copr enable solopasha/hyprland
-
 # this installs a package from fedora repos
-dnf5 install -y \
-    kvantum \
-    R \
-    rstudio-desktop \
-    hyprland \
-    waybar \
-    wofi \
-    mako \
-    hyprlock \
-    hyprpaper \
-    grim \
-    slurp \
-    xdg-desktop-portal-hyprland
-
-# 3. Deshabilitamos el repositorio para no dejar rastros en el sistema final
-dnf5 -y copr disable solopasha/hyprland
+dnf5 install -y kvantum R rstudio-202X.XX.X-xxx-x86_64.rpm hyprland xdg-desktop-portal-hyprland waybar rofi-wayland kitty dunst qt5ct qt6ct
 
 # Use a COPR Example:
 #
