@@ -17,7 +17,7 @@ dnf5 copr enable -y iucar/rstudio && dnf5 install -y rstudio-desktop
 dnf5 copr enable -y solopasha/hyprland && \
 dnf5 install -y \
   hyprland xdg-desktop-portal-hyprland \
-  hyprpaper hyprlock hypridle hyprpicker \
+  hyprpaper hyprlock hypridle hyprpicker hyprland-qtutils\
   waybar rofi-wayland swaync wlogout \
   grim slurp wl-clipboard \
   pavucontrol
@@ -27,7 +27,7 @@ dnf5 install -y \
 # dnf5 -y copr enable ublue-os/staging
 # dnf5 -y install package
 # Disable COPRs so they don't end up enabled on the final image:
-# dnf5 -y copr disable ublue-os/staging
+dnf5 -y copr disable ublue-os/staging
 
 #### Example for enabling a System Unit File
 
