@@ -11,7 +11,16 @@ set -ouex pipefail
 
 # this installs a package from fedora repos
 dnf5 install -y kvantum R 
-dfn install -y rstudio-desktop hyprland xdg-desktop-portal-hyprland waybar rofi-wayland kitty dunst qt5ct qt6ct
+dnf5 copr enable -y iucar/rstudio && dnf5 install -y rstudio-desktop
+
+# Habilitar el repositorio de Hyprland y luego instalar el WM y todas las utilidades
+dnf5 copr enable -y solopasha/hyprland && \
+dnf5 install -y \
+  hyprland xdg-desktop-portal-hyprland \
+  hyprpaper hyprlock hypridle hyprpicker \
+  waybar rofi-wayland swaync wlogout \
+  grim slurp wl-clipboard
+
 
 # Use a COPR Example:
 #
