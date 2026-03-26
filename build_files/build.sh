@@ -20,6 +20,7 @@ dnf5 install -y \
   hyprpaper hyprlock hypridle hyprpicker \
   waybar rofi-wayland swaync wlogout \
   grim slurp wl-clipboard \
+  hyprland-qt-support(x86-64) \
   hyprland-qtutils
 
 # Use a COPR Example:
