@@ -10,7 +10,8 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-dnf5 install -y kvantum R rstudio-desktop hyprland xdg-desktop-portal-hyprland waybar rofi-wayland kitty dunst qt5ct qt6ct
+dnf5 install -y kvantum R 
+dfn install -y rstudio-desktop hyprland xdg-desktop-portal-hyprland waybar rofi-wayland kitty dunst qt5ct qt6ct
 
 # Use a COPR Example:
 #
