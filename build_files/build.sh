@@ -17,7 +17,7 @@ dnf5 copr enable -y iucar/rstudio && dnf5 install -y rstudio-desktop
 dnf5 copr enable -y solopasha/hyprland && \
 dnf5 install -y \
   hyprland xdg-desktop-portal-hyprland \
-  hyprpaper hyprlock hypridle hyprpicker hyprland-qtutils\
+  hyprpaper hyprlock hypridle hyprpicker \
   waybar rofi-wayland swaync wlogout \
   grim slurp wl-clipboard \
   pavucontrol
