@@ -19,7 +19,8 @@ dnf5 install -y \
   hyprland xdg-desktop-portal-hyprland \
   hyprpaper hyprlock hypridle hyprpicker \
   waybar rofi-wayland swaync wlogout \
-  grim slurp wl-clipboard 
+  grim slurp wl-clipboard \
+  hyprland-qtutils
 
 # Use a COPR Example:
 #
