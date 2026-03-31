@@ -12,7 +12,6 @@ dnf5 copr enable -y iucar/rstudio && dnf5 install -y rstudio-desktop
 dnf5 copr enable -y solopasha/hyprland
 
 # Instalar Hyprland y dependencias
-# Agregamos explícitamente aylurs-gtk-shell (el nombre real del paquete en el COPR, en lugar de solo 'ags' que choca con el juego)
 dnf5 install -y \
   hyprland xdg-desktop-portal-hyprland \
   hyprpaper hyprlock hypridle hyprpicker \
@@ -23,7 +22,7 @@ dnf5 install -y \
   brightnessctl playerctl \
   unzip wget cargo \
   aylurs-gtk-shell \
-  gjs 
+  gjs gobject-introspection gtk-layer-shell libdbusmenu-gtk3 libgtop2
 
 # --- Instalar Bun (Método de descarga directa) ---
 wget https://github.com/oven-sh/bun/releases/latest/download/bun-linux-x64.zip -O bun.zip
