@@ -12,16 +12,19 @@ dnf5 copr enable -y iucar/rstudio && dnf5 install -y rstudio-desktop
 dnf5 copr enable -y solopasha/hyprland
 dnf5 copr enable -y retrozinndev/ags
 
-# Instalar Hyprland y dependencias
+# 1. Instalar Hyprland y dependencias (EXCEPTO ags)
 dnf5 install -y \
   hyprland xdg-desktop-portal-hyprland \
   hyprpaper hyprlock hypridle hyprpicker \
   waybar rofi-wayland swaync wlogout \
   grim slurp pavucontrol \
-  ags swww \
+  swww \
   kitty sassc fd-find ripgrep \
   brightnessctl playerctl \
   unzip wget cargo
+
+# 2. Instalar AGS obligando a DNF a usar el COPR (Ignorando el motor de videojuegos de Fedora)
+dnf5 install -y ags --disablerepo=fedora --disablerepo=updates --disablerepo=updates-archive
 
 # --- Instalar Bun (Método de descarga directa) ---
 wget https://github.com/oven-sh/bun/releases/latest/download/bun-linux-x64.zip -O bun.zip
