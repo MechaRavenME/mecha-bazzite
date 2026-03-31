@@ -21,22 +21,19 @@ dnf5 install -y \
   ags swww \
   kitty sassc fd-find ripgrep \
   brightnessctl playerctl \
-  npm unzip wget tar # Añadido 'tar' para extraer Bun
+  unzip wget cargo
 
-# --- Instalar Bun correctamente en Bazzite (Método de descarga directa) ---
-# Descargamos el binario compilado oficial en formato zip/tar para Linux x64
+# --- Instalar Bun (Método de descarga directa) ---
 wget https://github.com/oven-sh/bun/releases/latest/download/bun-linux-x64.zip -O bun.zip
 unzip bun.zip
-# El zip contiene una carpeta, movemos el binario dentro de ella a /usr/bin
 mv bun-linux-x64/bun /usr/bin/
-# Limpiamos los archivos descargados
 rm -rf bun-linux-x64 bun.zip
 
-# --- Instalar Matugen correctamente en Bazzite ---
-wget https://github.com/InioX/matugen/releases/latest/download/matugen-x86_64-unknown-linux-gnu.zip -O matugen.zip
-unzip matugen.zip
-mv matugen /usr/bin/
-rm matugen.zip
+# --- Instalar Matugen (Compilación segura con Cargo) ---
+# Usamos un directorio temporal en /tmp para evitar problemas de permisos de OSTree
+env CARGO_HOME=/tmp/cargo cargo install matugen
+mv /tmp/cargo/bin/matugen /usr/bin/
+rm -rf /tmp/cargo
 
 # Disable COPRs so they don't end up enabled on the final image
 dnf5 -y copr disable ublue-os/staging
