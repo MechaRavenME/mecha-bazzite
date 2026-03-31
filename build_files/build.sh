@@ -20,7 +20,9 @@ dnf5 install -y \
   hyprpaper hyprlock hypridle hyprpicker \
   waybar rofi-wayland swaync wlogout \
   grim slurp wl-clipboard \
-  pavucontrol
+  pavucontrol \
+  brightnessctl playerctl dart-sass fd-find ripgrep btop \
+  varlad/ags tofik/swww cargo
 
 # Use a COPR Example:
 #
