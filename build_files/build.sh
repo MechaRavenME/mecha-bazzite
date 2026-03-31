@@ -20,7 +20,7 @@ dnf5 install -y \
   hyprpaper hyprlock hypridle hyprpicker \
   waybar rofi-wayland swaync wlogout \
   grim slurp wl-clipboard \
-  pavucontrol
+  pavucontrol swww \
 
 # Use a COPR Example:
 #
