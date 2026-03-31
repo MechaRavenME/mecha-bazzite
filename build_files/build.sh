@@ -21,17 +21,18 @@ dnf5 install -y \
   ags swww \
   kitty sassc fd-find ripgrep \
   brightnessctl playerctl \
-  npm unzip wget # Añadido unzip y wget para los binarios
+  npm unzip wget tar # Añadido 'tar' para extraer Bun
 
-# --- Instalar Bun correctamente en Bazzite ---
-# Descargamos el binario oficial y lo movemos a /usr/bin directamente
-curl -fsSL https://bun.sh/install | bash -s "bun-v1.1.8"
-# El script instala bun en ~/.bun/bin, lo movemos al sistema
-mv ~/.bun/bin/bun /usr/bin/
-rm -rf ~/.bun
+# --- Instalar Bun correctamente en Bazzite (Método de descarga directa) ---
+# Descargamos el binario compilado oficial en formato zip/tar para Linux x64
+wget https://github.com/oven-sh/bun/releases/latest/download/bun-linux-x64.zip -O bun.zip
+unzip bun.zip
+# El zip contiene una carpeta, movemos el binario dentro de ella a /usr/bin
+mv bun-linux-x64/bun /usr/bin/
+# Limpiamos los archivos descargados
+rm -rf bun-linux-x64 bun.zip
 
 # --- Instalar Matugen correctamente en Bazzite ---
-# Descargamos el binario precompilado de Matugen (mucho más rápido que usar cargo)
 wget https://github.com/InioX/matugen/releases/latest/download/matugen-x86_64-unknown-linux-gnu.zip -O matugen.zip
 unzip matugen.zip
 mv matugen /usr/bin/
