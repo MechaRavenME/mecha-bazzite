@@ -13,8 +13,6 @@ dnf5 copr enable -y solopasha/hyprland
 dnf5 copr enable -y retrozinndev/ags
 
 # Instalar Hyprland y dependencias
-# HE ELIMINADO: wl-clipboard, btop, ImageMagick y nodejs porque Bazzite ya los trae.
-# HE CAMBIADO: dart-sass por sassc.
 dnf5 install -y \
   hyprland xdg-desktop-portal-hyprland \
   hyprpaper hyprlock hypridle hyprpicker \
@@ -23,11 +21,21 @@ dnf5 install -y \
   ags swww \
   kitty sassc fd-find ripgrep \
   brightnessctl playerctl \
-  npm cargo
+  npm unzip wget # Añadido unzip y wget para los binarios
 
-# Instalar dependencias externas (Bun y Matugen)
-npm install -g bun
-cargo install matugen --root /usr
+# --- Instalar Bun correctamente en Bazzite ---
+# Descargamos el binario oficial y lo movemos a /usr/bin directamente
+curl -fsSL https://bun.sh/install | bash -s "bun-v1.1.8"
+# El script instala bun en ~/.bun/bin, lo movemos al sistema
+mv ~/.bun/bin/bun /usr/bin/
+rm -rf ~/.bun
+
+# --- Instalar Matugen correctamente en Bazzite ---
+# Descargamos el binario precompilado de Matugen (mucho más rápido que usar cargo)
+wget https://github.com/InioX/matugen/releases/latest/download/matugen-x86_64-unknown-linux-gnu.zip -O matugen.zip
+unzip matugen.zip
+mv matugen /usr/bin/
+rm matugen.zip
 
 # Disable COPRs so they don't end up enabled on the final image
 dnf5 -y copr disable ublue-os/staging
