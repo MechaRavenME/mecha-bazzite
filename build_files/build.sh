@@ -8,10 +8,12 @@ set -ouex pipefail
 dnf5 install -y kvantum R 
 dnf5 copr enable -y iucar/rstudio && dnf5 install -y rstudio-desktop
 
-# Habilitar repositorios COPR para Hyprland, AGS y swww
+# Habilitar repositorio COPR para Hyprland (este sí tiene soporte para F43)
 dnf5 copr enable -y solopasha/hyprland
-dnf5 copr enable -y aylur/ags
-dnf5 copr enable -y tofik/swww
+
+# Bajar manualmente los repos de AGS y swww forzando la versión Fedora 42 para evitar error 404
+curl -Lo /etc/yum.repos.d/aylur-ags.repo https://copr.fedorainfracloud.org/coprs/aylur/ags/repo/fedora-42/aylur-ags-fedora-42.repo
+curl -Lo /etc/yum.repos.d/tofik-swww.repo https://copr.fedorainfracloud.org/coprs/tofik/swww/repo/fedora-42/tofik-swww-fedora-42.repo
 
 # Instalar Hyprland, utilidades base y las dependencias de Caelestia Shell
 dnf5 install -y \
@@ -35,8 +37,10 @@ cargo install matugen --root /usr
 dnf5 -y copr disable ublue-os/staging
 dnf5 -y copr disable iucar/rstudio
 dnf5 -y copr disable solopasha/hyprland
-dnf5 -y copr disable aylur/ags
-dnf5 -y copr disable tofik/swww
+
+# Eliminar los archivos .repo que descargamos a mano
+rm -f /etc/yum.repos.d/aylur-ags.repo
+rm -f /etc/yum.repos.d/tofik-swww.repo
 
 #### Example for enabling a System Unit File
 systemctl enable podman.socket
