@@ -14,13 +14,13 @@ dnf5 install -y kvantum R
 dnf5 copr enable -y iucar/rstudio && dnf5 install -y rstudio-desktop
 
 # Habilitar el repositorio de Hyprland y luego instalar el WM y todas las utilidades
-dnf5 copr enable -y solopasha/hyprland && \
-dnf5 install -y \
-  hyprland xdg-desktop-portal-hyprland \
-  hyprpaper hyprlock hypridle hyprpicker \
-  waybar rofi-wayland swaync wlogout \
-  grim slurp wl-clipboard \
-  pavucontrol swww \
+#dnf5 copr enable -y solopasha/hyprland && \
+#dnf5 install -y \
+#  hyprland xdg-desktop-portal-hyprland \
+#  hyprpaper hyprlock hypridle hyprpicker \
+#  waybar rofi-wayland swaync wlogout \
+#  grim slurp wl-clipboard \
+#  pavucontrol swww \
 
 # Use a COPR Example:
 #
